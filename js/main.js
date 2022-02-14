@@ -10,25 +10,25 @@ let dataGlasses = [
     { id: "G9", src: "./img/g9.jpg", virtualImg: "./img/v9.png", brand: "Coarch", name: "MIDNIGHT VIXEN REMIX", color: "Blue, Black", price: 120, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit consequatur soluta ad aut laborum amet." }
 ];
 
-let showGlasses = () => {
+let showDataGlasses = () => {
     let content = "";
     for (let i in dataGlasses) {
         content += `
-        <img src="${dataGlasses[i].virtualImg}" class="col-4 mt-5 img_Glasses" alt="">
+        <img src="${dataGlasses[i].virtualImg}" class="col-4 mt-5 img_one" alt="">
         `;   
     }
     document.getElementById("vglassesList").style.cursor = "pointer";
     document.getElementById("vglassesList").innerHTML = content;
 }
-showGlasses();
+showDataGlasses();
 
-let arr_glasses = document.querySelectorAll(".img_Glasses");
-for (let i = 0; i < arr_glasses.length; i ++) {
-        arr_glasses[i].addEventListener("click", () => {
+let arr_data_glasses = document.querySelectorAll(".img_one");
+for (let i = 0; i < arr_data_glasses.length; i ++) {
+        arr_data_glasses[i].addEventListener("click", () => {
         showModel(i);
         document.querySelector(".btn-before").addEventListener("click", () => {
             i--;
-            if (i >= 0 && i < arr_glasses.length) {
+            if (i >= 0 && i < arr_data_glasses.length) {
                 showModel(i);
             } else {
                 i = 0;
@@ -36,10 +36,10 @@ for (let i = 0; i < arr_glasses.length; i ++) {
         });
         document.querySelector(".btn-after").addEventListener("click", () => {
             i++;
-            if (i >= 0 && i < arr_glasses.length) {
+            if (i >= 0 && i < arr_data_glasses.length) {
                 showModel(i);
             } else {
-                i = arr_glasses.length - 1;
+                i = arr_data_glasses.length - 1;
             }
         });
     })
@@ -47,7 +47,7 @@ for (let i = 0; i < arr_glasses.length; i ++) {
 
 
 let showModel = (i) => {
-    document.querySelector(".vglasses__model").innerHTML = `<img src="${arr_glasses[i].src}" alt="">`;
+    document.querySelector(".vglasses__model").innerHTML = `<img src="${arr_data_glasses[i].src}" alt="">`;
     document.querySelector(".vglasses__info").style.display = "block";
     document.querySelector(".vglasses__info").innerHTML = `
         <h3>${dataGlasses[i].name} - ${dataGlasses[i].brand} (${dataGlasses[i].color})</h3>
